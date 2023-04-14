@@ -113,7 +113,7 @@ class UI:
         if self.game.status == Game.WON:
             self.title()
             print('      chances left: ', self.game.MAX_INCORRECT_GUESSES - self.game.incorrect_guess, '\n\n')
-            self.won()
+            self.won(self.game.name)
         elif self.game.status == Game.LOST:
             self.title()
             self.lost(self.game.name)
@@ -132,8 +132,9 @@ class UI:
             self.game.enter(char_input)
 
     @staticmethod
-    def won():
+    def won(word: str):
         print("     You have won the game! ")
+        print('You guessed the word right! : ', word)
         __ = input()
 
     @staticmethod
